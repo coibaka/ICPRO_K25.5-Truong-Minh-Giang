@@ -23,29 +23,31 @@ Stack hoạt động theo nguyên tắc **LIFO** (Last In, First Out): phần t�
 
 [Link video tham khảo](https://www.youtube.com/watch?v=Gv7YxOUBXMg)
 ##### 1.2 Stack Overflow là gì?
-![[C:\Users\minhg.DESKTOP-U9VC3B4\OneDrive\LEARNTOSHARE\Documents\ICPRO_K25.5-Truong-Minh-Giang\Image\Answer-1\stack_buffer_overflow_attack-f.png]]
+![[stack_buffer_overflow_attack-f.png]]
+
+Giải thích hình minh họa:
+
+- **Stack** giống như một chồng hộp được xếp chồng lên nhau. Mỗi khi một hàm được gọi, một "hộp" mới được đặt lên đỉnh stack.
+    
+- Nếu bạn gọi hàm quá nhiều lần (đặc biệt là đệ quy không có điểm dừng), các hộp sẽ chồng lên mãi cho đến khi **tràn ra ngoài**, gây ra lỗi **stack overflow**.
+    
+- Khi đó, chương trình không còn đủ bộ nhớ để xử lý tiếp và sẽ **bị dừng lại đột ngột**.
+
 **Stack overflow** xảy ra khi chương trình sử dụng quá nhiều bộ nhớ stack, vượt quá giới hạn cho phép. Khi đó, hệ thống không thể cấp thêm bộ nhớ và sẽ gây ra lỗi.
-
-### Nguyên nhân phổ biến:
-
-- **Gọi đệ quy không có điểm dừng**:
-    ```python
-    def loop():
-        loop()  # Gọi chính nó mãi mãi
-    loop()
-    ```
-    
-    → Hàm `loop()` gọi chính nó liên tục, mỗi lần gọi sẽ chiếm thêm bộ nhớ stack.
-    
-- **Tạo quá nhiều biến cục bộ hoặc mảng lớn trong hàm**:
-    
-    c
-    
-    ```
-    void bigArray() {
-        int arr[1000000];  // Quá lớn cho stack
-    }
-    ```
+##### Tổng kết
+Sau khi tìm hiểu thì...
+- `Stack` (xếp chồng) với phương thức hoạt động **LIFO** (Last In, First Out) của bộ đệm đối với dữ liệu bạn đặt trong khi chương trình bạn chạy.
+- **LIFO** (Last In, First Out) nghĩa là thứ bạn cho vào cuối cùng luôn là thứ bạn lấy ra đầu tiên. Ví dụ khi bạn viết 1 hàm gán 2 biến a và b:
+```C
+int a;
+int b;
+```
+Thì chương trình sẽ thực hiện theo `Stack` là: 
+	- (step 1) gán biến `b` với kiểu ` int ` --> (step 2) gán biến ` a ` kiểu ` int `.
+- Các thuật ngữ mới và cách thức hoạt động: 
+	- `heat` (chưa hiểu).
+	- `Push` dành cho khi thêm 1 stack vào và `Pop`.
+	- 
 #### 2. Memory Leak
 
 #### 3. Out of Memory
